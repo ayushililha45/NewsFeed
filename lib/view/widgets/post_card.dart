@@ -12,14 +12,15 @@ class PostCard extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 6 / 3,
       child: Card(
-        elevation: 2,
+        elevation: 4,
         child: Container(
-          margin: const EdgeInsets.all(4.0),
-          padding: const EdgeInsets.all(4.0),
+          margin: const EdgeInsets.all(2.0),
+          padding: const EdgeInsets.all(2.0),
           child: Column(
             children: <Widget>[
               _Post(),
               Divider(color: Colors.grey),
+              _LikeShare(),
               _PostDetails(),
             ],
           ),
@@ -54,7 +55,7 @@ class _PostTitleAndSummary extends StatelessWidget {
     return Expanded(
       flex: 3,
       child: Padding(
-        padding: const EdgeInsets.only(left: 4.0),
+        padding: const EdgeInsets.only(left: 2.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -145,3 +146,45 @@ class _PostTimeStamp extends StatelessWidget {
     );
   }
 }
+class _LikeShare extends StatelessWidget {
+  const _LikeShare({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          alignment: FractionalOffset.center,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  RaisedButton(
+                    onPressed: () {},
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      child: Text("Like", textAlign: TextAlign.center, style: new TextStyle(color: Colors.black, fontWeight: FontWeight.bold ), ),
+                    ),
+                  ),
+                  RaisedButton(
+                    onPressed: () {},
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      child: Text("Comment", textAlign: TextAlign.center, style: new TextStyle(color: Colors.black, fontWeight: FontWeight.bold ), ),
+                    ),
+                  ),
+                  RaisedButton(
+                    onPressed: () {},
+                    child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        child: Text("Share",textAlign: TextAlign.center, style: new TextStyle(color: Colors.black, fontWeight: FontWeight.bold ), ),
+                    ),
+                  ),
+                ],
+              ),
+        ),
+      ],
+    );
+  }
+}
+
